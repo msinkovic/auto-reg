@@ -1,0 +1,16 @@
+.mat-mdc-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background-color: #a1dbff;
+  color: brown;
+  height: 50px;
+}
+
+.button {
+  cursor: pointer;
+  &__login {
+    color: black;
+  }
+}
