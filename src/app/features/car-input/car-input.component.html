@@ -29,29 +29,38 @@
         </mat-form-field>
       </div>
       <div>
-        <button mat-button matStepperNext>Dalje</button>
+        <button mat-button matStepperNext color="primary">Dalje</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+  <mat-step label="Odaberite potrebne usluge">
     <form [formGroup]="secondFormGroup">
-      <mat-form-field>
-        <mat-label>Odaberite potrebne usluge</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
+      <div class="form-wrapper">
+        <mat-checkbox formControlName="washCtrl" required>Pranje</mat-checkbox>
+        <mat-checkbox formControlName="serviceCtrl" required>Servis</mat-checkbox>
+        <mat-checkbox formControlName="checkCtrl" required>Tehnicki pregled</mat-checkbox>
+      </div>
       <div>
-        <button mat-button matStepperPrevious>Prethodni korak</button>
-        <button mat-button matStepperNext>Dalje</button>
+        <button mat-button matStepperPrevious color="primary">Natrag</button>
+        <button mat-button matStepperNext [disabled]="!secondStepValid" color="accent">Dalje</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Kraj</ng-template>
-    <p>Hvala na povjerenju.</p>
+    <div class="text-wrapper">
+      <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu velit a felis efficitur porta vitae eget lorem. Donec volutpat tellus eros,
+        euismod sodales leo posuere sit amet. Aliquam cursus gravida tortor, in iaculis justo scelerisque id. Vestibulum porttitor eros vitae orci rutrum tristique.
+        Fusce egestas, metus eu mollis molestie, turpis urna aliquet massa, eget sollicitudin nisl risus ac augue. Sed vitae venenatis nulla. Proin fermentum vitae
+        augue in convallis. Pellentesque eu eleifend odio, in cursus augue. Fusce ut urna quis mi dignissim cursus sit amet quis orci. Nunc sodales sapien eget elit
+        euismod sodales. In hac habitasse platea dictumst. Donec pretium, tortor a gravida fringilla, est lacus ultricies nibh, vel pretium libero diam eget dui.
+      </article>
+      <button mat-raised-button routerLink="/dashboard" color="accent">{{'Povratak' | uppercase}}</button>
+    </div>
     <div>
-      <button mat-button matStepperPrevious>Prethodni korak</button>
-      <button mat-button (click)="stepper.reset()">Ponovi</button>
+      <button mat-button matStepperPrevious color="primary">Natrag</button>
+      <button mat-button (click)="stepper.reset()" color="primary">Ponisti</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

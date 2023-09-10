@@ -5,13 +5,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  background-color: $primary;
+  background-color: #3f51b5;
   height: 50px;
 }
 
 .button {
   cursor: pointer;
   &__login {
-    color: black;
+    color: #ff4081;
   }
+}
+
+.filter-color {
+  filter: invert(42%) sepia(48%) saturate(4284%) hue-rotate(316deg) brightness(101%) contrast(101%);
 }

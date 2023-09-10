@@ -14,6 +14,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { CarsService } from "./features/car-input/services/cars.service";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { CarsService } from "./features/car-input/services/cars.service";
     MatSelectModule,
     CommonModule,
     HttpClientModule,
+    MatCheckboxModule,
   ],
   providers: [CarsService],
   declarations: [MainComponent, CarInputComponent],
