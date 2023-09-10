@@ -1,0 +1,57 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Popunite podatke o automobilu</ng-template>
+      <div class="form-wrapper">
+        <mat-form-field>
+          <mat-label>Proizvodac automobila</mat-label>
+          <mat-select formControlName="firstCtrl">
+            <mat-option *ngFor="let car of (carMakes$ | async)" [value]="car">
+              {{car}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="firstFormGroup.controls.firstCtrl.valid">
+          <mat-label>Model automobila</mat-label>
+          <mat-select formControlName="secondCtrl">
+            <mat-option *ngFor="let model of carModels" [value]="model">
+              {{model}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="firstFormGroup.controls.secondCtrl.valid">
+          <mat-label>Godina proizvodnje</mat-label>
+          <mat-select formControlName="thirdCtrl">
+            <mat-option *ngFor="let year of carYears" [value]="year">
+              {{year}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Dalje</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field>
+        <mat-label>Odaberite potrebne usluge</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Prethodni korak</button>
+        <button mat-button matStepperNext>Dalje</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Kraj</ng-template>
+    <p>Hvala na povjerenju.</p>
+    <div>
+      <button mat-button matStepperPrevious>Prethodni korak</button>
+      <button mat-button (click)="stepper.reset()">Ponovi</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

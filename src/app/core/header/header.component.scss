@@ -1,10 +1,11 @@
+@import '../../../styles/variables';
+
 .mat-mdc-nav-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  background-color: #a1dbff;
-  color: brown;
+  background-color: $primary;
   height: 50px;
 }
 

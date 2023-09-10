@@ -1,8 +1,14 @@
+@import '../../../styles/variables';
+
 footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 15px;
-  background-color: #a1dbff;
+  background-color: $primary;
   height: 50px;
+}
+
+p {
+  margin: 0;
 }
